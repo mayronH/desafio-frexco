@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from users.models import CustomUser
 
 class SignUpForm(UserCreationForm):
+    """Signup Form with Birthdate and no password validation"""
     password1 = forms.CharField(label=("Senha"), widget=forms.PasswordInput, required=False)
     password2 = None
     birthdate = forms.DateField(label=("Data de Nascimento"), localize="pt-BR", widget=forms.DateTimeInput, 

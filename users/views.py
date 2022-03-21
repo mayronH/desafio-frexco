@@ -51,12 +51,14 @@ def dashboard(request):
 
 @login_required
 def jsonUsers(request):
+    """Export user list to JSON"""
     user_list = list(CustomUser.objects.values())
     
     return JsonResponse(user_list, safe=False)
 
 @login_required
 def csvUsers(request):
+    """Export user list to CSV"""
     users = CustomUser.objects.all().values_list('username', 'birthdate', 'date_joined', 'last_login')
     
     response = HttpResponse(
@@ -73,7 +75,8 @@ def csvUsers(request):
     return response
     
 @login_required
-def xlsxUsers(request):  
+def xlsxUsers(request):
+    """Export user list to XLSX"""
     output = io.BytesIO()
     
     workbook = xlsxwriter.Workbook(output)
