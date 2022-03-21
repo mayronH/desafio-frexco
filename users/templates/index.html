@@ -1,0 +1,13 @@
+{% extends 'base.html' %} 
+{% block meta %} 
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %} 
+{% block content %}
+
+<div class="container">
+    <h1>Olá, <br />Bem vindo {{user.username}}</h1>
+    <h2>Aplicação desenvolvida em Django para Desafio Tech Frexco</h2>
+</div>
+
+{% endblock %}

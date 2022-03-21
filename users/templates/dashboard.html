@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+{% endblock %}
+
+{% block content %}
+<h1 class="pageTitle">Usuários Cadastrados</h1>
+<div class="container">
+    <table id="users">
+        <thead>
+            <tr>
+                <th scope="col">username</th>
+                <th scope="col">birthdate</th>
+                <th scope="col">date_joined</th>
+                <th scope="col">last_login</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr> 
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.birthdate }}</td>
+                    <td>{{ user.date_joined }}</td>
+                    <td>{{ user.last_login }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <footer class="buttons">
+        <a href="{% url 'json' %}" target="_blank">JSON</a>
+        <a href="{% url 'csv' %}" target="_blank">CSV</a>
+        <a href="{% url 'xlsx' %}" target="_blank">XLSX</a>
+    </footer>
+</div>
+{% endblock %}
+
+{% block footer %}
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#users').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Portuguese-Brasil.json"
+                }
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,24 @@
+.container {
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons a{
+    color: var(--white);
+}
+
+.buttons a:first-child{
+    background: var(--blue);
+}
+
+.buttons a:nth-child(2) {
+    background: var(--green);
+}
+
+.buttons a:last-child{
+    background: var(--yellow);
+}

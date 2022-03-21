@@ -1,0 +1,32 @@
+{% extends "../base.html" %}
+
+{% block meta %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %}
+
+{% block content %}
+    <div class="containerForm">
+        <div class="form">
+            <h1 class="pageTitle">Logar</h1>
+            {% if form.erros %}
+                <div class="errorlist">
+                    <p>Login/senha inválidos.</p>
+                </div>
+            {% endif %}
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {{ form.password.label_tag }}
+                {{ form.password }}
+
+                <input type="hidden" name="next" value="{{ next }}" />
+
+                <footer class="buttons">
+                    <button type="submit">Logar</button>
+                </footer>
+            </form>
+        </div>
+    </div>
+{% endblock %}

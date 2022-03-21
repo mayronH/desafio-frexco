@@ -1,0 +1,155 @@
+:root {
+    --background: #fcfcff;
+    --text: #898989;
+
+    --red: #bf110b;
+    --darkred: #9b0000;
+    --lightblue: #0079b9;
+    --blue: #1663a6;
+    --green: #14b258;
+    --yellow: #f89406;
+
+    --white: #eeeeee;
+    --darkgrey: #333333;
+    --dark: #1c1c1c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    overflow-x: hidden;
+
+    font-family: 'Poppins', sans-serif;
+
+    height: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background: var(--background);
+    color: var(--text);
+    
+    display: flex;
+    flex-direction: column;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 500;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 1rem;
+
+    background: var(--dark);
+}
+
+.menu nav ul {
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.menu a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.logo a {
+    font-size: 2rem;
+}
+
+.conteudo{
+    flex: 1;
+
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.pageTitle {
+    color: var(--darkgrey);
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 4rem;
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.buttons {
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.875rem;
+
+    padding-top: 1.5rem;
+}
+
+.buttons a,
+.buttons button {
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+
+    border-radius: 5px;
+
+    padding: 0.8rem 1.25rem;
+
+    transition: background 0.2s;
+}
+
+.rodape {
+    background: var(--darkgrey);
+
+    border-top: 1px solid var(--dark);
+
+    text-align: center;
+
+    width: 100%;
+    padding: 1.5rem 0;
+
+}
+
+.rodape a {
+    color: var(--white);
+}
+
+@media only screen and (max-width:968px){ 
+    .container{
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .menu {
+        display: block;
+
+        text-align: center;
+    }
+
+    .logo {
+        padding-bottom: 0.95rem;
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .pageTitle{
+        font-size: 3rem;
+    }
+}
